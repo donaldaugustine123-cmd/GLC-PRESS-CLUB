@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GLC PRESS CLUB · voices that inform, stories that inspire</title>
+  <!-- Font Awesome 6 (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Beautiful Google Fonts: Playfair Display (elegant) + Inter (clean) + Poppins for buttons -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,700&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background-color: #ffffff;
+      color: #1e1e1e;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --black: #0a0a0a;
+      --yellow: #f5c518;
+      --white: #ffffff;
+      --off-white: #f9f9f9;
+      --gray-light: #eaeaea;
+    }
+
+    /* Beautiful typography */
+    h1, h2, h3, h4, .logo-text, .slogan, .hero h1, .hero .slogan {
+      font-family: "Playfair Display", serif;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .logo-text {
+      font-family: "Playfair Display", serif;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+
+    .btn, .nav-links a, .btn-submit, .role, .benefit-item, .card h3, .exec-card h4 {
+      font-family: "Poppins", sans-serif;
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+      position: relative;
+      display: inline-block;
+      font-family: "Playfair Display", serif;
+      font-weight: 700;
+    }
+    h2:after {
+      content: '';
+      display: block;
+      width: 70px;
+      height: 4px;
+      background: var(--yellow);
+      margin-top: 8px;
+      border-radius: 3px;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 2rem 2rem;
+    }
+
+    /* navigation */
+    .navbar {
+      background: var(--black);
+      color: var(--white);
+      padding: 0.8rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo-svg {
+      width: 50px;
+      height: 50px;
+    }
+    .logo-text {
+      font-size: 1.6rem;
+      letter-spacing: 0.5px;
+      color: var(--white);
+    }
+    .logo-text span {
+      color: var(--yellow);
+    }
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      font-weight: 600;
+    }
+    .nav-links a {
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: 0.2s;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .nav-links a:hover {
+      color: var(--yellow);
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--yellow);
+      color: var(--black);
+      padding: 0.8rem 2.2rem;
+      border-radius: 40px;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 1.1rem;
+      border: 2px solid transparent;
+      transition: 0.2s;
+      box-shadow: 0 8px 16px rgba(245, 197, 24, 0.25);
+      font-family: "Poppins", sans-serif;
+      letter-spacing: 0.3px;
+    }
+    .btn:hover {
+      background: var(--black);
+      color: var(--yellow);
+      border-color: var(--yellow);
+    }
+
+    /* HERO with BACKGROUND IMAGE */
+    .hero {
+      position: relative;
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      color: var(--white);
+      background: var(--black);
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1400&q=80');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.45;
+      z-index: 0;
+    }
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0.7) 100%);
+    }
+    .hero .container {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.2rem;
+      padding: 4rem 2rem;
+    }
+    .hero-logo {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .hero-logo svg {
+      width: 100px;
+      height: 100px;
+      filter: drop-shadow(0 0 12px rgba(245,197,24,0.6));
+    }
+    .hero h1 {
+      font-size: 4.5rem;
+      line-height: 1.1;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.7);
+      font-family: "Playfair Display", serif;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    .hero h1 span {
+      color: var(--yellow);
+    }
+    .hero .slogan {
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: var(--yellow);
+      text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+      margin-top: 0.5rem;
+      font-family: "Playfair Display", serif;
+      font-style: italic;
+      letter-spacing: 0.3px;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 650px;
+      color: #f0f0f0;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+      margin: 1rem 0 1.2rem;
+      font-family: "Inter", sans-serif;
+      font-weight: 300;
+      letter-spacing: 0.2px;
+    }
+
+    /* sections */
+    .section-white { background: var(--white); }
+    .section-light { background: var(--off-white); }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .card {
+      background: var(--white);
+      padding: 2rem 1.5rem;
+      border-radius: 24px;
+      border: 1px solid var(--gray-light);
+      transition: 0.2s;
+    }
+    .card i {
+      font-size: 2.5rem;
+      color: var(--yellow);
+      margin-bottom: 1rem;
+    }
+    .card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.8rem;
+      font-family: "Playfair Display", serif;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    .card p {
+      color: #3d3d3d;
+      font-family: "Inter", sans-serif;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    .card:hover { transform: translateY(-6px); border-color: var(--yellow); }
+
+    /* executives */
+    .exec-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.8rem;
+      margin: 2rem 0 1rem;
+    }
+    .exec-card {
+      background: var(--white);
+      padding: 1.6rem 1rem;
+      border-radius: 28px;
+      border: 1px solid var(--gray-light);
+      text-align: center;
+      transition: 0.15s;
+    }
+    .exec-card:hover { border-color: var(--yellow); transform: scale(1.01); }
+    .exec-card i { font-size: 2.8rem; color: var(--yellow); margin-bottom: 0.8rem; }
+    .exec-card h4 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+      font-family: "Playfair Display", serif;
+      letter-spacing: -0.01em;
+    }
+    .exec-card .role {
+      font-weight: 600;
+      background: #f9f1d2;
+      display: inline-block;
+      padding: 0.2rem 1rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      margin-top: 0.5rem;
+      font-family: "Poppins", sans-serif;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+    }
+    .other-members {
+      background: var(--yellow);
+      border-radius: 60px;
+      padding: 1.8rem 2rem;
+      margin-top: 2rem;
+      color: var(--black);
+      font-weight: 600;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2.5rem;
+    }
+    .other-members span {
+      font-size: 1.2rem;
+      background: rgba(0,0,0,0.03);
+      padding: 0.3rem 1.2rem;
+      border-radius: 40px;
+      white-space: nowrap;
+      font-family: "Inter", sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+    }
+    .other-members i { margin-right: 8px; }
+
+    .benefits-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    .benefit-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: var(--white);
+      padding: 1.2rem 1.5rem;
+      border-radius: 60px;
+      border: 1px solid var(--gray-light);
+      font-weight: 600;
+      font-family: "Poppins", sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+    }
+    .benefit-item i { color: var(--yellow); font-size: 1.8rem; }
+
+    .membership-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    .info-card {
+      background: var(--yellow);
+      color: var(--black);
+      padding: 2.5rem 2rem;
+      border-radius: 32px;
+    }
+    .info-card h3 {
+      font-family: "Playfair Display", serif;
+      font-weight: 700;
+      font-size: 2rem;
+      letter-spacing: -0.01em;
+    }
+    .info-card p {
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin: 1rem 0;
+      font-family: "Inter", sans-serif;
+    }
+
+    .contact-form {
+      background: var(--white);
+      padding: 2rem;
+      border-radius: 32px;
+      border: 1px solid var(--gray-light);
+    }
+    .contact-form h3 {
+      font-family: "Playfair Display", serif;
+      font-weight: 700;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+    .form-group { margin-bottom: 1.5rem; }
+    input, textarea {
+      width: 100%;
+      padding: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 40px;
+      font-family: "Inter", sans-serif;
+      font-size: 1rem;
+      background: #fcfcfc;
+      font-weight: 400;
+    }
+    textarea { border-radius: 30px; resize: vertical; }
+    .btn-submit {
+      background: var(--black);
+      color: var(--white);
+      border: none;
+      padding: 1rem 2.5rem;
+      border-radius: 40px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.2s;
+      font-family: "Poppins", sans-serif;
+      font-size: 1rem;
+      letter-spacing: 0.3px;
+    }
+    .btn-submit:hover { background: var(--yellow); color: var(--black); }
+
+    /* Contact section - updated fonts */
+    .school-contact {
+      margin-top: 0;
+      font-size: 1.1rem;
+    }
+    .school-contact .contact-title {
+      font-family: "Playfair Display", serif;
+      font-weight: 700;
+      font-size: 1.6rem;
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+      color: var(--black);
+      letter-spacing: -0.01em;
+    }
+    .school-contact .contact-detail {
+      font-family: "Inter", sans-serif;
+      font-weight: 400;
+      line-height: 1.8;
+      color: #2d2d2d;
+      font-size: 1.05rem;
+    }
+    .school-contact .contact-detail i {
+      color: var(--yellow);
+      width: 1.8rem;
+      display: inline-block;
+      font-size: 1.2rem;
+    }
+    .school-contact .contact-detail a {
+      color: var(--black);
+      text-decoration: none;
+      transition: 0.2s;
+    }
+    .school-contact .contact-detail a:hover {
+      color: var(--yellow);
+    }
+
+    .footer {
+      background: var(--black);
+      color: #aaa;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.95rem;
+      font-family: "Inter", sans-serif;
+      font-weight: 300;
+      letter-spacing: 0.3px;
+    }
+    .footer p:first-child {
+      font-family: "Playfair Display", serif;
+      font-weight: 400;
+      font-style: italic;
+      color: #ddd;
+    }
+
+    /* about paragraph */
+    .about-text {
+      font-size: 1.2rem;
+      max-width: 900px;
+      font-family: "Inter", sans-serif;
+      font-weight: 400;
+      line-height: 1.7;
+      color: #2d2d2d;
+    }
+
+    /* uniform note */
+    .uniform-note {
+      margin-top: 1.5rem;
+      font-style: italic;
+      color: #4a4a4a;
+      font-family: "Inter", sans-serif;
+      font-weight: 400;
+    }
+
+    /* mobile */
+    @media (max-width: 800px) {
+      .navbar { flex-direction: column; gap: 0.8rem; }
+      .nav-links { flex-wrap: wrap; justify-content: center; gap: 1.3rem; }
+      .hero h1 { font-size: 2.8rem; }
+      .hero .container { align-items: center; text-align: center; }
+      .hero-logo { justify-content: center; }
+      .hero p { max-width: 100%; }
+      .membership-cards { grid-template-columns: 1fr; }
+      h2 { font-size: 2rem; }
+      .other-members { flex-direction: column; align-items: center; gap: 0.8rem; border-radius: 40px; }
+      .hero .slogan { font-size: 1.3rem; }
+      .contact-grid { grid-template-columns: 1fr !important; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="logo-container">
+      <svg class="logo-svg" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="200,30 240,70 300,55 315,115 370,140 335,195 370,250 315,275 300,335 240,320 200,360 160,320 100,335 85,275 30,250 65,195 30,140 85,115 100,55 160,70" fill="black" stroke="#FFD700" stroke-width="6"/>
+        <polygon points="40,180 360,180 330,210 360,240 40,240 70,210" fill="#FFD700"/>
+        <text x="200" y="220" text-anchor="middle" font-size="34" font-weight="bold" fill="black" font-family="Arial, Helvetica, sans-serif">PRESS CLUB</text>
+        <text x="200" y="265" text-anchor="middle" font-size="16" fill="white" font-family="Arial, Helvetica, sans-serif">✦ ESTD 2020 ✦</text>
+        <circle cx="200" cy="130" r="22" fill="#FFD700"/>
+        <rect x="190" y="150" width="20" height="14" rx="3" fill="#ddd"/>
+        <g stroke="white" stroke-width="4" stroke-linecap="round">
+          <line x1="200" y1="95" x2="200" y2="80"/>
+          <line x1="175" y1="105" x2="165" y2="90"/>
+          <line x1="225" y1="105" x2="235" y2="90"/>
+          <line x1="160" y1="130" x2="145" y2="130"/>
+          <line x1="240" y1="130" x2="255" y2="130"/>
+        </g>
+      </svg>
+      <span class="logo-text"><span>GLC</span> PRESS CLUB</span>
+    </div>
+    <div class="nav-links">
+      <a href="#home">HOME</a>
+      <a href="#about">ABOUT</a>
+      <a href="#activities">ACTIVITIES</a>
+      <a href="#executives">EXECUTIVES</a>
+      <a href="#benefits">BENEFITS</a>
+      <a href="#membership">MEMBERSHIP</a>
+      <a href="#contact">CONTACT</a>
+    </div>
+  </nav>
+
+  <!-- HERO with background image -->
+  <section id="home" class="hero">
+    <div class="hero-bg"></div>
+    <div class="container">
+      <div class="hero-logo">
+        <svg width="100" height="100" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="200,30 240,70 300,55 315,115 370,140 335,195 370,250 315,275 300,335 240,320 200,360 160,320 100,335 85,275 30,250 65,195 30,140 85,115 100,55 160,70" fill="black" stroke="#FFD700" stroke-width="6"/>
+          <polygon points="40,180 360,180 330,210 360,240 40,240 70,210" fill="#FFD700"/>
+          <text x="200" y="220" text-anchor="middle" font-size="34" font-weight="bold" fill="black" font-family="Arial, Helvetica, sans-serif">PRESS CLUB</text>
+          <text x="200" y="265" text-anchor="middle" font-size="16" fill="white" font-family="Arial, Helvetica, sans-serif">✦ ESTD 2020 ✦</text>
+          <circle cx="200" cy="130" r="22" fill="#FFD700"/>
+          <rect x="190" y="150" width="20" height="14" rx="3" fill="#ddd"/>
+          <g stroke="white" stroke-width="4" stroke-linecap="round">
+            <line x1="200" y1="95" x2="200" y2="80"/>
+            <line x1="175" y1="105" x2="165" y2="90"/>
+            <line x1="225" y1="105" x2="235" y2="90"/>
+            <line x1="160" y1="130" x2="145" y2="130"/>
+            <line x1="240" y1="130" x2="255" y2="130"/>
+          </g>
+        </svg>
+        <span class="slogan">VOICES THAT INFORM, STORIES THAT INSPIRE</span>
+      </div>
+      <h1>GLC <span>PRESS CLUB</span></h1>
+      <p>Empowering students to communicate confidently — through journalism, broadcasting, and leadership. Your story starts here.</p>
+      <a href="#membership" class="btn">✎ Join the Press Club</a>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="section-white">
+    <div class="container">
+      <h2>About the club</h2>
+      <p class="about-text">We help students develop real‑world speaking skills, journalistic integrity, and the confidence to present news in front of large audiences. Through teamwork, creativity, and leadership, our members become the voice of the school.</p>
+      <div class="card-grid" style="margin-top: 2.5rem;">
+        <div class="card"><i class="fas fa-microphone-alt"></i><h3>Public speaking</h3><p>Weekly speaking drills, anchoring, and stage presence training.</p></div>
+        <div class="card"><i class="fas fa-pen-fancy"></i><h3>Journalism</h3><p>Report writing, interviewing, and editing school news.</p></div>
+        <div class="card"><i class="fas fa-users"></i><h3>Teamwork</h3><p>Collaborative projects, from news casting to event coverage.</p></div>
+        <div class="card"><i class="fas fa-crown"></i><h3>Leadership</h3><p>Take charge as editors, anchors, and club officers.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Activities -->
+  <section id="activities" class="section-light">
+    <div class="container">
+      <h2>Our activities</h2>
+      <div class="card-grid">
+        <div class="card"><i class="fas fa-video"></i><h3>News casting</h3><p>Live morning announcements and assembly news segments.</p></div>
+        <div class="card"><i class="fas fa-user-tie"></i><h3>Interviews</h3><p>Interview teachers, students, and special guests.</p></div>
+        <div class="card"><i class="fas fa-newspaper"></i><h3>School reporting</h3><p>Write articles for the school blog and monthly magazine.</p></div>
+        <div class="card"><i class="fas fa-camera-retro"></i><h3>Event coverage</h3><p>Media coverage of sports day, cultural fests, and more.</p></div>
+        <div class="card"><i class="fas fa-comments"></i><h3>Debate & speech</h3><p>Practice impromptu speaking and structured debates.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXECUTIVES -->
+  <section id="executives" class="section-white">
+    <div class="container">
+      <h2>Meet the executives</h2>
+      <div class="exec-grid">
+        <div class="exec-card"><i class="fas fa-user-tie"></i><h4>Hon. Roland</h4><div class="role">COORDINATOR 1</div></div>
+        <div class="exec-card"><i class="fas fa-user-tie"></i><h4>Hon. Damilola</h4><div class="role">COORDINATOR 2</div></div>
+        <div class="exec-card"><i class="fas fa-user-tie"></i><h4>Hon. Emmanuel</h4><div class="role">COORDINATOR 3</div></div>
+        <div class="exec-card"><i class="fas fa-crown"></i><h4>Com. Donald Augustine</h4><div class="role">PRESIDENT</div></div>
+        <div class="exec-card"><i class="fas fa-handshake"></i><h4>Com. Ajibola Anjola</h4><div class="role">VICE PRESIDENT</div></div>
+        <div class="exec-card"><i class="fas fa-pen"></i><h4>Com. Adeniyi Deborah</h4><div class="role">SECRETARY</div></div>
+        <div class="exec-card"><i class="fas fa-comment"></i><h4>Com. Olisadun Favour</h4><div class="role">PIDGIN NEWS EDITOR</div></div>
+        <div class="exec-card"><i class="fas fa-language"></i><h4>Com. Ajiboye Mayowa</h4><div class="role">YORUBA NEWS EDITOR</div></div>
+      </div>
+      <div class="other-members">
+        <span><i class="fas fa-star"></i> Com. Adesewa</span>
+        <span><i class="fas fa-star"></i> Com. Abigail</span>
+        <span><i class="fas fa-star"></i> Com. Winner</span>
+        <span><i class="fas fa-star"></i> Com. Semilore</span>
+        <span><i class="fas fa-star"></i> Com. Deborah</span>
+        <span><i class="fas fa-star"></i> Com. Olamide</span>
+      </div>
+      <p class="uniform-note"><i class="fas fa-map-pin" style="color:var(--yellow);"></i> All members wear school uniform: milkish cream shirts with gray trousers (boys) / gray pinafores (girls).</p>
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section id="benefits" class="section-light">
+    <div class="container">
+      <h2>Why join?</h2>
+      <div class="benefits-list">
+        <div class="benefit-item"><i class="fas fa-check-circle"></i> Become a confident speaker</div>
+        <div class="benefit-item"><i class="fas fa-check-circle"></i> Journalism & media skills</div>
+        <div class="benefit-item"><i class="fas fa-check-circle"></i> Improve communication</div>
+        <div class="benefit-item"><i class="fas fa-check-circle"></i> Leadership experience</div>
+        <div class="benefit-item"><i class="fas fa-check-circle"></i> Teamwork & collaboration</div>
+        <div class="benefit-item"><i class="fas fa-check-circle"></i> Real-world storytelling</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Membership -->
+  <section id="membership" class="section-white">
+    <div class="container">
+      <h2>Membership</h2>
+      <div class="membership-cards">
+        <div class="info-card">
+          <i class="fas fa-id-card" style="font-size: 3rem;"></i>
+          <h3>Open to all grades</h3>
+          <p>No previous experience required. Just curiosity and passion for stories.</p>
+          <p><i class="fas fa-calendar-alt"></i> Meetings: every Tuesday & Thursday, 3:30 PM – 4:45 PM (Room A-203)</p>
+          <a href="#contact" class="btn" style="background: black; color: white; margin-top: 1rem;">✎ sign up</a>
+        </div>
+        <div style="background: white; border-radius: 32px; padding: 2rem; border: 1px solid #eaeaea;">
+          <h3 style="font-family:'Playfair Display',serif; font-weight:700; font-size:1.8rem;">How to join</h3>
+          <p style="font-family:'Inter',sans-serif; font-weight:400; line-height:1.7;">1. Fill the contact form below or visit room A-203.<br>2. Attend two trial meetings.<br>3. Choose your wing: news, writing, or broadcasting.</p>
+          <p style="font-family:'Inter',sans-serif; font-weight:400; margin-top:1rem;"><i class="fas fa-star" style="color:var(--yellow);"></i> First semester intake: August & January.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact - updated fonts and contact details -->
+  <section id="contact" class="section-light">
+    <div class="container">
+      <h2>Contact & inquiries</h2>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start;" class="contact-grid">
+        <div class="school-contact" style="background: white; border-radius: 32px; padding: 2rem;">
+          <i class="fas fa-map-marker-alt" style="font-size: 2.5rem; color: var(--yellow);"></i>
+          <div class="contact-title">GLC PRESS CLUB</div>
+          <div class="contact-detail">
+            <p><i class="fas fa-location-dot"></i> Great Landmark College, Onifufu Street, Abusoro, Ijoka Road, Akure, Ondo State, Nigeria.</p>
+            <p><i class="fas fa-phone"></i> <a href="tel:+2349112718653">+234 911 271 8653</a></p>
+            <p><i class="fas fa-envelope"></i> <a href="mailto:donaldaugustine123@gmail.com">donaldaugustine123@gmail.com</a></p>
+            <p><i class="fab fa-instagram"></i> @glc.press</p>
+          </div>
+        </div>
+        <div class="contact-form">
+          <h3>Ask to join</h3>
+          <form>
+            <div class="form-group"><input type="text" placeholder="Full name"></div>
+            <div class="form-group"><input type="email" placeholder="Email address"></div>
+            <div class="form-group"><input type="text" placeholder="Grade / class"></div>
+            <div class="form-group"><textarea rows="3" placeholder="Why are you interested? (optional)"></textarea></div>
+            <button class="btn-submit" type="submit">Send inquiry →</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2025 GLC PRESS CLUB — voices that inform, stories that inspire.</p>
+    <p style="margin-top: 0.5rem;">📍 Great Landmark College, Onifufu Street, Abusoro, Ijoka Road, Akure, Ondo State, Nigeria.</p>
+  </footer>
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>
